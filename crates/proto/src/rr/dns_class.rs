@@ -75,7 +75,7 @@ impl DNSClass {
             4 => Ok(DNSClass::HS),
             254 => Ok(DNSClass::NONE),
             255 => Ok(DNSClass::ANY),
-            _ => Err(ProtoErrorKind::UnknownDnsClassValue(value).into()),
+            value => Ok(Self::for_opt(value)),
         }
     }
 

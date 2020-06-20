@@ -155,10 +155,6 @@ pub enum ProtoErrorKind {
     #[error("dns class string unknown: {0}")]
     UnknownDnsClassStr(String),
 
-    /// An unknown dns class value was found
-    #[error("dns class value unknown: {0}")]
-    UnknownDnsClassValue(u16),
-
     /// An unknown record type string was found
     #[error("record type string unknown: {0}")]
     UnknownRecordTypeStr(String),
@@ -397,7 +393,6 @@ impl Clone for ProtoErrorKind {
             },
             UnknownAlgorithmTypeValue(value) => UnknownAlgorithmTypeValue(value),
             UnknownDnsClassStr(ref value) => UnknownDnsClassStr(value.clone()),
-            UnknownDnsClassValue(value) => UnknownDnsClassValue(value),
             UnknownRecordTypeStr(ref value) => UnknownRecordTypeStr(value.clone()),
             UnknownRecordTypeValue(value) => UnknownRecordTypeValue(value),
             UnrecognizedLabelCode(value) => UnrecognizedLabelCode(value),
